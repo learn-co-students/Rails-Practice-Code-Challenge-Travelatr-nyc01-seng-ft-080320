@@ -1,0 +1,16 @@
+<h1> <%= @blogger.name %> </h1>
+
+<div>
+    <% if @blogger.posts.count > 0 %>
+        <h3><%= @blogger.likes_total %></h3>
+        <h3>Featured Post:</h3>
+        <p><%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post) %></p>
+        <p><%= @blogger.featured_post.content %></p>
+    <% end %>
+</div>
+
+
+
+<br>
+<%= button_to "All Bloggers", bloggers_path, method: :get %>
+
