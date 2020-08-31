@@ -1,0 +1,25 @@
+<h1>Blogger Show Page</h1>
+Blogger Name:
+<h3><%= @blogger.name %></h3>
+Blogger Bio:
+<h3><%= @blogger.bio %></h3>
+Blogger Age:
+<h3><%= @blogger.age %></h3>
+
+Total Post Likes:
+<h3><%= @blogger.likes %></h3>
+
+Featured Post:
+<h3><%= link_to(@blogger.feature.title, post_path(@blogger.feature)) %></h3>
+
+Total Five Destinations: 
+<ul><% @blogger.top_five_destinations.each do |dest_name| %>
+    <li><%= link_to(dest_name, destination_path(Destination.find_by(name: dest_name))) %></li>
+<% end%>
+</ul>
+
+
+<p>New Post:
+<%= button_to("New Post", new_post_path, method: :get) %>
+</p>
+

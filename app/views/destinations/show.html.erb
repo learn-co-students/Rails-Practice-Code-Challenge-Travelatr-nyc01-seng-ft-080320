@@ -1,0 +1,14 @@
+<h1>Destination Show Page</h1>
+
+Last Five Posts:
+<ul><% @destination.last_five_posts.each do |post| %>
+<li><%= link_to post.title, post_path(post) %></li>
+<% end %>
+</ul>
+
+Festured Post:
+<h3><%= link_to @destination.feature.title, post_path(@destination.feature) %></h3>
+
+Average Age of Blogger:
+
+<h3><%= @destination.average_blogger_age %></h3>

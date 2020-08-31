@@ -1,0 +1,23 @@
+<h1>Post Show Page</h1>
+
+
+
+Post Title:
+<h3><%= @post.title %></h3>
+
+Post Author:
+<h3><%= link_to(@post.blogger.name, blogger_path(@post.blogger.name)) %></h3>
+
+Post Destination:
+<h3><%= link_to(@post.destination.name, destination_path(@post.destination)) %></h3>
+
+Post Content:
+<h3><%= @post.content %></h3>
+
+Post Likes:
+<h3><%= @post.likes %></h3>
+
+<%= button_to "Like", post_path(@post), method: :patch, params: { :post => {:likes => (@post.likes + 1) } }%>
+
+<h3>Edit Post:</h3>
+<%= button_to("Edit Post", edit_post_path, method: :get)%>

@@ -1,0 +1,28 @@
+<h3>Form for Post</h3>
+
+<% if flash[:my_errors] %>
+    <h2><%= pluralize(flash[:my_errors].count, "error") %> prohibited this article from being saved:</h2>
+ 
+    <ul>
+    <% flash[:my_errors].each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+
+<%= form_for @post do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :content %>
+<%= f.text_area :content %>
+
+<%= f.collection_select(:blogger_id, Blogger.all, :id, :name) %>
+
+<%= f.collection_select(:destination_id, Destination.all, :id, :name) %>
+
+<%= f.submit %>
+
+<% end %>
