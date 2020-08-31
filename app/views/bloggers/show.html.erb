@@ -1,0 +1,19 @@
+<h1> Blogger Information </h1>
+<h2> Blogger Name: </h2>
+<h3><%= @blogger.name %></h3><br>
+<h2> Blogger Age: </h2>
+<h3><%=@blogger.age%></h3>
+<h2> Posts: </h2>
+<% @blogger.posts.each do |post| %>
+    <h4><%= link_to post.title, post_path(post) %></h4>
+<% end %>
+<h2>Total Likes: </h2>
+<h3><%=@blogger.all_likes%></h3>
+<h2>Featured Post:</h2>
+<%if @blogger.featured%>
+   <p> <%= link_to @blogger.featured.title, post_path(@blogger.featured)%></p>
+<% else %>
+  <p>  N/A </p>
+<% end %>
+<h2>Top 5 Destinations</h2>
+<%=%>
