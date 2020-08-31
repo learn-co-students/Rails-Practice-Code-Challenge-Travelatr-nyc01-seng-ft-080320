@@ -1,0 +1,29 @@
+<h1>Post's Details:<h1>
+<div>
+    <table>
+        <tr>
+            <td><b>Post's Title</b></td>
+            <td>:<%= @post.title %></td>
+        </tr>
+        <tr>
+            <td><b>Content</b></td>
+            <td>: <%= @post.content %></td>
+        </tr>
+        <tr>
+            <td><b>Like Button</b></td>
+            <td>:<%= button_to "#{@post.likes.to_s}", post_path(@post), method: :patch %></td>
+        </tr>
+
+         <tr>
+            <td><b>Author</b></td>
+            <td>:<%= link_to @post.blogger.name, blogger_path(@post.blogger) %></td>
+        </tr>
+
+        <tr>
+            <td><b>Destination</b></td>
+            <td>:<%= link_to @post.destination.name, destination_path(@post.destination) %></td>
+        </tr>
+
+        
+    </table>
+</div>

@@ -1,0 +1,29 @@
+<h1>Blogger's Details:<h1>
+<div>
+    <table>
+        <tr>
+            <td><b>Blogger's name</b></td>
+            <td>:<%= @blogger.name %></td>
+        </tr>
+        <tr>
+            <td><b>Total Likes</b></td>
+            <td>: <%= @blogger.total_likes %></td>
+        </tr>
+        <tr>
+            <td><b>Post with Most Likes</b></td>
+            <td>:<%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post) %></td>
+        </tr>
+
+        <tr>
+            <td><b>Top 5 Destinations:</b></td>
+            
+            <td>
+                <ul>
+                    <% @blogger.top_five_destinations.each do |destination| %>
+                        <li><%= destination.name %></li>
+                    <% end %>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>

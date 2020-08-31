@@ -1,0 +1,40 @@
+<h1>Destination Details:</h1>
+<div>
+    <table>
+        <tr>
+            <td><b>Destination Name</b></td>
+            <td>:<%= @destination.name %></td>
+        </tr>
+
+         <tr>
+            <td><b>Destination Country</b></td>
+            <td>:<%= @destination.country %></td>
+        </tr>
+
+        <tr>
+            <td valign="top"><b>Most Recent 5</b></td>
+            <td valign="top"></td>
+        </tr>
+        <% @destination.most_recent_five_posts.each do |post| %>
+        <tr>
+            <td></td>
+            <td><li> <%= post.title %></li></td>
+        </tr>
+        <% end%>
+        </tr>
+
+         <tr>
+            <td><b>Average Age of Destination's Vistors</b></td>
+            <td>:<%= @destination.average_age_of_bloggers %></td>
+        </tr>
+    
+
+        <tr>
+            <td><b>Featured Post</b></td>
+            <td><%= link_to @destination.most_liked_post.title, post_path(@destination.most_liked_post)  %></td>
+        
+        </tr>
+
+    </table>
+</div>
+
