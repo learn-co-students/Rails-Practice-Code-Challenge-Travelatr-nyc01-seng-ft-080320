@@ -1,0 +1,13 @@
+<h1>Blogger Show Page</h1>
+Blogger Name:
+<h3><%= @blogger.name %></h3>
+Blogger Bio:
+<h3><%= @blogger.bio %></h3>
+Blogger Age:
+<h3><%= @blogger.age %></h3>
+
+Total Post Likes:
+<h3><%= @blogger.likes %></h3>
+
+Featured Post:
+<h3><%= link_to(@blogger.feature.title, post_path(@blogger.feature)) %></h3>
