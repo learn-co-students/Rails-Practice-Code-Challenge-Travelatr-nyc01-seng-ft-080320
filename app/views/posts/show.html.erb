@@ -1,0 +1,16 @@
+<h1><%= @post.title %></h1>
+
+<h3>Author: </h3> <%= link_to @post.blogger.name, blogger_path(@post.blogger) %><br>
+
+<h3>Destination: </h3> <%= link_to @post.destination.name, destination_path(@post.destination) %> <br>
+
+<div>
+    <%= @post.content %>
+</div>
+
+<h3>Likes: </h3> <%= @post.likes %>
+
+<%= form_for @post do |f| %>
+    <%= f.hidden_field :likes, value: @post.increase_like %>
+    <%= f.button "Like"%>
+<% end %>
