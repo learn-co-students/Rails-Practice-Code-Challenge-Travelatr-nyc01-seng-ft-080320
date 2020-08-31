@@ -1,0 +1,10 @@
+<h1>Blogger#show</h1>
+
+<%= @blog.name %>
+<%= @blog.age %>
+<%= @blog.bio %>
+<%= @blog.total_likes %>
+<%= link_to @blog.most_likes.title, post_path(@blog.most_likes) %>
+
+
+<p>Find me in app/views/blogger/show.html.erb</p>
