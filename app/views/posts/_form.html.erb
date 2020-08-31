@@ -1,5 +1,15 @@
 <h3>Form for Post</h3>
 
+<% if flash[:my_errors] %>
+    <h2><%= pluralize(flash[:my_errors].count, "error") %> prohibited this article from being saved:</h2>
+ 
+    <ul>
+    <% flash[:my_errors].each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+<% end %>
+
 
 <%= form_for @post do |f| %>
 

@@ -14,7 +14,12 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.create(post_params)
-        redirect_to post_path(@post)
+        if @post.valid?
+            redirect_to post_path(@post)
+        else
+            flash[:my_errors] = @post.errors.full_messages
+            redirect_to new_post_path
+        end
     end
 
     def edit
@@ -24,13 +29,12 @@ class PostsController < ApplicationController
     def update
         @post = get_post
         @post.update(post_params)
-        redirect_to post_path(@post)
-    end
-
-    def like
-        @post = get_post
-        @post.likes += 1
-        redirect_to post_path(@post)
+        if @post.valid?
+            redirect_to post_path(@post)
+        else
+            flash[:my_errors] = @post.errors.full_messages
+            redirect_to edit_post_path 
+        end
     end
 
     private
