@@ -11,3 +11,15 @@ Total Post Likes:
 
 Featured Post:
 <h3><%= link_to(@blogger.feature.title, post_path(@blogger.feature)) %></h3>
+
+Total Five Destinations: 
+<ul><% @blogger.top_five_destinations.each do |dest_name| %>
+    <li><%= link_to(dest_name, destination_path(Destination.find_by(name: dest_name))) %></li>
+<% end%>
+</ul>
+
+
+<p>New Post:
+<%= button_to("New Post", new_post_path, method: :get) %>
+</p>
+
