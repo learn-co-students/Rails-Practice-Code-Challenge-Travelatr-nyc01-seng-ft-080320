@@ -1,10 +1,14 @@
 <h1>Blogger#show</h1>
 
-<%= @blog.name %>
-<%= @blog.age %>
-<%= @blog.bio %>
-<%= @blog.total_likes %>
-<%= link_to @blog.most_likes.title, post_path(@blog.most_likes) %>
+name: <%= @blog.name %><br>
+age: <%= @blog.age %><br>
+bio: <%= @blog.bio %><br>
+total likes: <%= @blog.total_likes %><br>
+Most liked post: <%= link_to @blog.most_likes.title, post_path(@blog.most_likes) %><br>
+most written about:<br>
+<% @blog.most_written.each do |k,v| %>
+<%= Destination.find(k).name %><br>
+<% end %>
 
 
 <p>Find me in app/views/blogger/show.html.erb</p>

@@ -20,7 +20,15 @@ class Blogger < ApplicationRecord
     end
 
     def most_written
-        self.count(:)
+        nh = Hash.new
+        self.posts.each do |p|
+            if nh[p.destination.id]
+                nh[p.destination.id] += 1
+            else
+                nh[p.destination.id] = 1
+            end
+        end
+        nh.sort_by {|k,v| v}.last(5)
     end
 end
 
