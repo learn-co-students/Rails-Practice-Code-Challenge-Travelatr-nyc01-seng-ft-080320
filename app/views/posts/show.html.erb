@@ -1,0 +1,6 @@
+<h1>Post</h1>
+
+<h3>Title: <%= @post.title%></h3>
+<p><%= @post.content%></h3>
+<h5><%= link_to @post.blogger.name, blogger_path(@post.blogger)%></h5>
+<h5><%= link_to @post.destination.name, destination_path(@post.destination)%></h5>
