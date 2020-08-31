@@ -1,0 +1,11 @@
+<%if flash[:success]%>
+<h1><%= flash[:success]%></h1>
+<%end%>
+
+<h1>Blogger Profile</h1>
+
+<h3><%= @blogger.name%></h3>
+
+<p>Age:<%=@blogger.age%></p>
+<p>Bio:<%=@blogger.bio%></p>
+
