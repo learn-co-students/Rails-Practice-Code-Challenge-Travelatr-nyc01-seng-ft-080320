@@ -8,7 +8,8 @@
     <%= @post.content %>
 </div>
 
-<h3>Likes: </h3> <%= @post.likes %>
+<h3>Likes: </h3> 
+<%= @post.likes %>
 
 <%= form_for @post do |f| %>
     <%= f.hidden_field :likes, value: @post.increase_like %>

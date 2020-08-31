@@ -24,9 +24,8 @@ def new
 end
 
 def create
-    @post = Post.new(post_params)
+    @post = Post.create(post_params)
     if @post.valid?
-        @post = Post.save(post_params)
         redirect_to post_path(@post)
     else
         #send error message

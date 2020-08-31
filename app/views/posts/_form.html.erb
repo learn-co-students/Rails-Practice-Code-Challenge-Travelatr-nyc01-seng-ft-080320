@@ -21,6 +21,7 @@
         <%= f.collection_select :blogger_id, Blogger.all, :id, :name %>
     </p>
     
+        <%= f.hidden_field :likes, value: @post.likes = 0 %>
     
 
     <%= f.submit %>
